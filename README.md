@@ -6,7 +6,7 @@
 
 ## Estructura principal del proyecto
 
-|-/src
+|-/src <br/>
 |-/assets
     |--------job.png
     |--------job1.png
