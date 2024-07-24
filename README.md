@@ -1,8 +1,23 @@
-# React + Vite
+# DEMO RESULTANT
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Teconologías usadas en el proyecto hasta el momento:
+  - Vite
+  - React js
 
-Currently, two official plugins are available:
+## Estructura principal del proyecto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+|-/src
+|-/assets
+    |--------job.png
+    |--------job1.png
+    |--------logo.png
+  |-/components
+    |--------HeroSection.jsx
+    |--------Navbar.jsx
+  |- App.js
+  |- index.js
+
+- En la carpeta assets se encuentran las imagenes utilizadas hasta ahora en el proyecto al igual que el logotipo de la captura de pantalla que se nos entrego en el correo.
+- En la sección de components encontramos los principales codigos realizados para cada parte del proyecto como lo es la navbar y la sección principal Hero que es la vista del website.
+- El archivo App.js es archivo principal de la aplicación que incluye y organiza los componentes.
+- El index.js contiene el punto de entrada de la aplicación React.
