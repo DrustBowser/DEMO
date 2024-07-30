@@ -14,8 +14,8 @@ import { environment } from 'src/environments/environment';
 export class LoginComponent {
 
   public clientCredentials = new UntypedFormGroup({
-    numEmpleado: new UntypedFormControl('', Validators.required),
-    contrasenia: new UntypedFormControl('', Validators.required)
+    username: new UntypedFormControl('', Validators.required),
+    password: new UntypedFormControl('', Validators.required)
   })
   showPsw = false;
   constructor(private toastr: ToastrService,
@@ -53,17 +53,21 @@ export class LoginComponent {
     }
   }
 
-  validarEntrada(event: KeyboardEvent): boolean {
-    const valorActual = this.clientCredentials.value.numEmpleado;
-
-    if (event.key === 'Backspace')
-      return true;
-    const nuevoValor = valorActual + event.key;
-    const patronRegex: RegExp = /^[0-9]\d*$/;
-    if (!patronRegex.test(nuevoValor)) {
-      event.preventDefault();
-      return false;
-    }
-    return true;
+  handleClear() {
+    this.clientCredentials.patchValue({password: ''});
   }
+
+  // validarEntrada(event: KeyboardEvent): boolean {
+  //   const valorActual = this.clientCredentials.value.numEmpleado;
+
+  //   if (event.key === 'Backspace')
+  //     return true;
+  //   const nuevoValor = valorActual + event.key;
+  //   const patronRegex: RegExp = /^[0-9]\d*$/;
+  //   if (!patronRegex.test(nuevoValor)) {
+  //     event.preventDefault();
+  //     return false;
+  //   }
+  //   return true;
+  // }
 }
