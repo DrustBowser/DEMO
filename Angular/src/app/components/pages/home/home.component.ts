@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { MainService } from 'src/app/services/services/main.service';
 import { convertFileToDataUri } from 'src/app/shared/utils/utils.functions';
 
 @Component({
@@ -9,9 +11,28 @@ import { convertFileToDataUri } from 'src/app/shared/utils/utils.functions';
 export class HomeComponent {
 
   claims: any = [
-    { status: 'Open', program: 'UI', bye: '12/30/2023', paidDate: 1016, mba: 4918, wba: 189, rba: 3898},
-    { status: 'Expired', program: 'UI', bye: '03/19/2022', paidDate: 512, mba: 4524, wba: 174, rba: 4012},
-    ]
+    { status: 'Open', program: 'UI', bye: '12/30/2023', paidDate: 1016, mba: 4918, wba: 189, rba: 3898 },
+    { status: 'Expired', program: 'UI', bye: '03/19/2022', paidDate: 512, mba: 4524, wba: 174, rba: 4012 },
+  ];
+
+  constructor(private _mainSvc: MainService,
+    private toastr: ToastrService
+  ) {}
+
+  ngOnInit() {
+    this.getDatFromBigQuery();
+  }
+
+  getDatFromBigQuery= async() => {
+    // this._mainSvc.loginBigQuery();
+    // this._mainSvc.getAccessTokenBigQuery();
+    // (await this._mainSvc.getData()).subscribe((resp: any) => {
+    //   console.log(resp)
+    // });
+    (await this._mainSvc.getDataPython()).subscribe((resp: any) => {
+      console.log(resp)
+    });
+  }
 
   onFileSelected(event: any) {
     const input = event.target as HTMLInputElement;
